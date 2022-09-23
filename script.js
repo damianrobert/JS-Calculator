@@ -84,16 +84,3 @@ button.forEach(bttn => {
         }
     })
 })
-
-
-/*if(selectedOperator === '+'){
-                screenLast.innerText = parseInt(firstOperand) + parseInt(secondOperand)
-            } else  if(selectedOperator === '-'){
-                screenLast.innerText = parseInt(firstOperand) - parseInt(secondOperand)
-            } else  if(selectedOperator === '÷'){
-                screenLast.innerText = parseInt(firstOperand) / parseInt(secondOperand)
-            } else  if(selectedOperator === 'x'){
-                screenLast.innerText = parseInt(firstOperand) * parseInt(secondOperand)
-            } else  if(selectedOperator === '%'){
-                screenLast.innerText = parseInt(firstOperand) % parseInt(secondOperand)
-            }*/
