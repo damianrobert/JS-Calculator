@@ -1,0 +1,130 @@
+:root{
+    --yellow: rgb(248, 198, 18);
+    --gray: rgb(24, 23, 23);
+    --lightGray: rgb(39, 38, 38);
+    --green: rgb(77, 174, 77);
+    --red: rgb(203, 95, 95);
+    --white: white;
+    --shadow: rgba(0, 0, 0, 0.5);
+    --shadow2: rgba(222, 170, 39, 0.263);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background: var(--yellow);
+}
+
+.container{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculator{
+    height: 500px;
+    width: 350px;
+    background: var(--lightGray);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 10px 14px 7px 0px var(--shadow);
+}
+
+.calculator button{
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+    background: var(--gray);
+    border: 1px solid var(--gray);
+    color: var(--white);
+    box-shadow: 2px 1.5px 4px var(--shadow2);
+}
+
+.allClear{
+    font-size: 22px;
+}
+
+.clear{
+    font-size: 18px;
+}
+
+.digits{
+    font-size: 30px;
+}
+
+.operators{
+    font-size: 30px;
+}
+
+.decimal{
+    font-size: 30px;
+}
+
+.equals{
+    font-size: 30px;
+}
+
+.screen{
+    width: 320px;
+    height: 80px;
+    width: 100%;
+    margin-bottom: 35px;
+    border-radius: 5px;
+    background: var(--gray);
+    box-shadow: inset 3px 2px 4px var(--shadow2);
+}
+
+.allButtons{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 0px 0px 12.5px;
+}
+
+#equal{
+    width: 140px;
+    border-radius: 50px;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: var(--shadow);
+}
+
+#equal:hover{
+    color: var(--green);
+}
+
+#allclear:hover{
+    color: var(--red);
+}
+
+#clear:hover{
+    color: var(--red);
+}
+
+.screenLast,
+.screenCurrent{
+    display: flex;
+    justify-content: end;
+    height: 40px;
+    overflow: hidden;
+    padding: 5px;
+}
+
+.screenLast{
+    color: var(--shadow2);
+    font-size: 1.6rem;
+}
+
+.screenCurrent{
+    color: var(--shadow2);
+    font-size: 1.2rem;
+}
