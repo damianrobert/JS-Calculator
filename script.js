@@ -5,24 +5,26 @@ const buttons = document.querySelector('.allButtons')
 const button = buttons.querySelectorAll('BUTTON')
 const operators = document.querySelectorAll('.operators')
 
+screenCurrent.innerText = '0'
 let firstOperand
 let secondOperand
 let selectedOperator
 let result
 let key
 let keyValue
+let currentNumbers
 
 function calculate(first, operator, second){
     if(operator === '+'){
-       first + second
+      return first + second
     } else  if(operator === '-'){
-        first - second
+      return  first - second
     } else  if(operator === '÷'){
-        first / second
+      return  first / second
     } else  if(operator === 'x'){
-        first * second
+      return  first * second
     } else  if(operator === '%'){
-        first % second
+      return  first % second
     }
 }
 
@@ -32,8 +34,13 @@ button.forEach(bttn =>{
          key = e.target
          keyValue = key.innerText
         if(key.className === 'digits'){
+            if(screenCurrent.innerText === '0'){
+                screenCurrent.innerText = ''
+                screenCurrent.innerText = keyValue
+            } else{
             screenCurrent.innerText = screenCurrent.innerText + keyValue
-
+            currentNumbers = screenCurrent.innerText
+            }
         } 
         
         if(key.className === 'operators'){
@@ -49,6 +56,20 @@ button.forEach(bttn =>{
         } else if(key.className === 'decimal'){
             screenCurrent.innerText = screenCurrent.innerText + keyValue
         }
+
+        if(keyValue === 'AC'){
+            screenCurrent.innerText = '0'
+            screenLast.innerText = ''
+        }
+
+        if(keyValue === 'CLEAR'){
+            currentNumbers = currentNumbers.slice(0, -1)
+            screenCurrent.innerText = currentNumbers
+            if(screenCurrent.innerText = ''){
+                return
+            }
+            
+        }
         
     })
 })
@@ -58,8 +79,9 @@ button.forEach(bttn => {
     bttn.addEventListener('click', () =>{
         if(key.className === 'equals'){
             secondOperand = screenCurrent.innerText
-            firstOperand = parseInt(firstOperand)
-            secondOperand = parseInt(secondOperand)
+            firstOperand = parseFloat(firstOperand)
+            secondOperand = parseFloat(secondOperand)
+
             if(selectedOperator === '+'){
                 result = firstOperand + secondOperand
                 screenLast.innerText = result
@@ -68,7 +90,7 @@ button.forEach(bttn => {
                 result = firstOperand - secondOperand
                 screenLast.innerText = result
                 screenCurrent.innerText = ''
-            } else if(selectedOperator === 'x'){
+            } else if(selectedOperator === '×'){
                 result = firstOperand * secondOperand
                 screenLast.innerText = result
                 screenCurrent.innerText = ''
